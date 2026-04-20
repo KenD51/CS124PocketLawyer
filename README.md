@@ -23,12 +23,11 @@ Current ideas  here:
      2. The User taps or inputs "Yes."
      3. The Parser logic instantly pulls the specific "Leaf Node" from the Penal Code Tree related to "Failure to Identify."
      4. The UI displays a simple "TL;DR" summary: "In California, you generally do not have to show ID unless you are being detained or are driving."
-     5. Below that summary, there is a button: "Read the Full Law." Because of the tree, that button takes them exactly to Section 148, not just the top of the page.
-Possible tree structure:
-   The Visual Hierarchy
-   The Root (Level 0): The entire Code (e.g., "California Penal Code").
-   The Branches (Level 1 & 2): These nodes are the containers. A node that contains links to sub-topics like "Search and Seizure" or "Right to Counsel" instead of the full law.
-   The Leaves (Level 3+): These are the leaf nodes. They contain the actual string data (the text of the law) and the metadata (the law number, the date it was passed).
-The bottom line idea is that we try to create a search engine that parses the entire code and lets you go to the specific chapter or give a tldr very quickly.
+     5. Below that summary, there is a button: "Read the Full Law." Because of the tree, that button takes them exactly to Section 148, not just the top of the page.- 
+- Possible tree structure:
+   - The Root (Level 0): The entire Code (e.g., "California Penal Code").
+   - The Branches (Level 1 & 2): These nodes are the containers. A node that contains links to sub-topics like "Search and Seizure" or "Right to Counsel" instead of the full law.
+   - The Leaves (Level 3+): These are the leaf nodes. They contain the actual string data (the text of the law) and the metadata (the law number, the date it was passed).
+- The bottom line idea is that we try to create a search engine that parses the entire code and lets you go to the specific chapter or give a tldr very quickly.
 
      
