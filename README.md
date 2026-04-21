@@ -118,12 +118,10 @@ It is also highly extensible, allowing additional features such as:
 - file saving/loading
 - contact grouping
 - search optimization
+  
 //
-
 //
-
 //
-
 //
 
 README 2: Inventory + Warehouse Optimization System
@@ -243,15 +241,10 @@ This project is practical, easy to explain, and clearly tied to real industries.
 - one person handles interface and reporting
 
 It demonstrates both useful software design and core data structures and algorithms in a meaningful way.
-
 //
-
 //
-
 //
-
 //
-
 README 3: File Directory System / Search Engine
 
 Project Overview
