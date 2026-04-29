@@ -8,6 +8,17 @@
  */
 class LinkedList {
 
+    struct Node {
+        Item data;
+        Node* next;
+
+        // Constructor
+        Node(const Item& item) : data(item), next(nullptr) {}
+    };
+
+    Node* head;
+    Node* tail;
+    int count;
 public:
     /**
      * @brief default constructor
@@ -54,18 +65,7 @@ public:
      * @brief Displays all items in the linked list.
      */
     void display() const;
-private:
-    struct Node {
-        Item data;
-        Node* next;
 
-        // Constructor
-        Node(const Item& item) : data(item), next(nullptr) {}
-    };
-
-    Node* head;
-    Node* tail;
-    int count;
 };
 
 #endif // LINKED_LIST_H

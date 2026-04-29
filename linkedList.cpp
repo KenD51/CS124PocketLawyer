@@ -47,13 +47,14 @@ void LinkedList::insertAfter(Node* node, const Item& item) {
     node->next = newNode;                   //update passed in node to point to the new node
     count++;
 }
+
 int LinkedList::getCount() const {
     return count;
 }
-Node* LinkedList::getHead() const {
+LinkedList::Node* LinkedList::getHead() const {
     return head;
 }
-Node* LinkedList::getTail() const {
+LinkedList::Node* LinkedList::getTail() const {
     return tail;
 }
 void LinkedList::setHead(Node* newHead) {
@@ -69,7 +70,7 @@ void LinkedList::display() const {
         std::cout << "Name: " << current->data.getName() << std::endl;
         std::cout << "Category: " << current->data.getCategory() << std::endl;
         std::cout << "Quantity: " << current->data.getQuantity() << std::endl;
-        std::cout << "Min Stock Threshold" << current->data.getMinStockThreshold() << std::endl;
+        std::cout << "Min Stock Threshold: " << current->data.getMinStockThreshold() << std::endl;
         current = current->next;
     }
 }

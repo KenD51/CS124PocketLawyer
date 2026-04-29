@@ -6,9 +6,22 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(CS124InventoryManagement
         linkedList.h
+        linkedList.cpp
         main.cpp
         itemType.h
         restockManager.h
         inventoryLinearSearch.h
         stockAlertManager.h
-        main.cpp)
+        csvFunctions.h
+        binarySearchTree.cpp
+        binarySearchTree.h
+        inventoryLinearSearch.h
+        inventoryLinearSearch.cpp
+        redBlackTree.cpp
+        redBlackTree.h
+        restockManager.cpp
+        restockManager.h
+        sortingAlgo.cpp
+        sortingAlgo.h
+        stockAlertManager.cpp
+        stockAlertManager.h)
