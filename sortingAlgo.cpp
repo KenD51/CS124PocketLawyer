@@ -39,7 +39,7 @@ void merge(std::vector<int>& a, int from, int mid, int to) {
 }
 
 // Recursive merge sort
-void merge_sort(std::vector<int>& a, int from, int to) {
+void mergeSort(std::vector<int>& a, int from, int to) {
     if (from >= to) return;
 
     int mid = (from + to) / 2;
