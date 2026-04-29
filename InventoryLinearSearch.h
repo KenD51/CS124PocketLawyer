@@ -10,6 +10,8 @@
  * @brief Class containing search and sorting algorithms for the inventory.
  */
 class InventoryAlgorithms {
+
+//Yo i don't think we need a private here boys
 public:
     // Constructor and Destructor
     InventoryAlgorithms();
@@ -24,12 +26,12 @@ public:
     int linearSearch(const std::vector<Item>& inventory, const std::string& targetId);
 
     /**
-     * @brief Sorts the inventory using a linear/binary logic sorting algorithm. So we can use quicksort or merge if we want
+     * @brief Sorts the inventory using a linear/binary logic sorting algorithm. So we can use quicksort or merge if we want.
      * @param inventory The vector of items to sort in-place.
      */
     void sortInventoryByID(std::vector<Item>& inventory);
     
-    //I added this as I will need to call this function to help calculate urgency for the restock priority queue.
+    //I added this below as I will need to call this function to help calculate urgency for the restock priority queue. Seems right to put this here.
 
     /**
      * @brief Sorts the inventory by quantity to prioritize restocking or track overstock.
