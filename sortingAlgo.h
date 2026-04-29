@@ -6,6 +6,8 @@
  *  @param mid; the end of the first range
  *  @param to; the end of the second range
  */
+
+// IMPORTANT, this is our implemenetation code in class, we might need to convert it to accept objects of our item types. Still implemeneting 
 void merge(std::vector<int>& a, int from, int mid, int to);
 
 /**
@@ -13,6 +15,8 @@ void merge(std::vector<int>& a, int from, int mid, int to);
  *  @param from; start o the range to sort
  *  @param to; end of the range to sort
  */
+
+// IMPORTANT, this is our implemenetation code in class, we might need to convert it to accept objects of our item types. Still implemeenting
 void mergeSort(std::vector<int>& a, int from, int to);
 
 #endif
