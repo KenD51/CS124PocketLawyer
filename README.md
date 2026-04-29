@@ -3,7 +3,7 @@
 # Inventory + Warehouse Optimization System
   Team members: Aaron, Kenshin, Darcie
   
-#Project Overview
+# Project Overview
 The Inventory + Warehouse Optimization System is a software application designed to manage products in a warehouse, track inventory levels, and improve the efficiency of item retrieval and restocking. 
 The system simulates real warehouse operations by organizing item data, prioritizing tasks, and optimizing routes for workers or automated systems.
 This project demonstrates how data structures and algorithms can be used to solve practical logistics and supply chain problems.
@@ -62,12 +62,5 @@ This project demonstrates how data structures and algorithms can be used to solv
 - Sorting: Used to rank items by: quantity, urgency, popularity, reorder priority
 - Search algorithms: Used to find matching products quickly by keyword or ID.
 
-# Division of Labor
-
- Darcie: Modular Testing + User Testing
-
- Aaron:  Modular Testing + User Testing
-
-Kenshin: Modular Testing + User Testing
 
 
