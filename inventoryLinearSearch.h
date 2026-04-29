@@ -2,6 +2,7 @@
 #define INVENTORY_ALGORITHMS_H
 
 #include "itemType.h"
+#include "sortingAlgo.h"
 #include <vector>
 #include <string>
 
