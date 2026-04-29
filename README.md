@@ -34,6 +34,7 @@ This project demonstrates how data structures and algorithms can be used to solv
 - Linked List - This is itemType, each product can be a linked list of all the attributes
 - Hash map - Done
 - Binary/search tree = hierarchy of items. Must implement BFS or DFS
+- File reader for CSV
 
 #Header Files we need
 - Binary Search tree - BFS or DFS
@@ -41,6 +42,10 @@ This project demonstrates how data structures and algorithms can be used to solv
 - Linear Search
 - Linked List/Node
 
+# Updates 4/28
+- Added Merge Sorting Algorithm (WIP) (Header & Source included)
+- Started Linked List (Header, some source)
+- Starting implemenetation of RBT (Aaron)
   
 Possibly graphs. Direction
 
