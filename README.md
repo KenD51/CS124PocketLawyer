@@ -61,6 +61,20 @@ Good progress! There are a lot of specialized functionalities here! Are you sure
 
 - Suporn Chenhansa
 
+# 4/29 What needs to be done
+
+- Finish sorting algo and have it executable (Darcie)
+- StockAlertManager.cpp (Finish and Testing)
+- RestockManager.cpp (Testing)
+- RBT (Testing)
+- main.cpp (Needs to be worked on) (Presenting on Monday)
+- test.cpp (temporary test file for executables)
+- LinkedList.cpp (Needs to be worked on)
+- ItemType.cpp (Testing)
+- InventoryLinearSearch.cpp (Testing)
+- ReadCSV.cpp (Update pathing, ready for testing after)
+- BinarySearchTree (Needs to be worked on)
+
 # Algorithms Used
 - Shortest path algorithm: Dijkstra’s algorithm. Used to find the fastest or shortest path through the warehouse to collect items.
 - Greedy algorithm: Used to determine a practical picking order or restocking sequence.
