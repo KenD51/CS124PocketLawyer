@@ -55,6 +55,7 @@ This project demonstrates how data structures and algorithms can be used to solv
 - Worked on stock alert and inventory management (Kenshin)
 - ReStockManager.cpp (Kenshin)
 - manager.cpp (Kenshin)
+- GUI started (Kenshin)
 
 # 4/29 Feedback
 Good progress! There are a lot of specialized functionalities here! Are you sure you want to include all of the ones listed in your current scope. It looks like a lot of work. No need to go back to fix anything for now, but for future, adding comments at top of header file to explain the object's role in the project would be helpful for me. Like the RBT header file just says that it's RBT but I don't know its role in your project!  Let's check-in tomorrow so I can get a better understanding!
