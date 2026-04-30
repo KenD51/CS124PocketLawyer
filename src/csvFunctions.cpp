@@ -1,3 +1,5 @@
+//Done, ready for testing. Needs pathing update?
+
 #include "csvFunctions.h"
 #include "linkedList.h"
 #include "itemType.h"
