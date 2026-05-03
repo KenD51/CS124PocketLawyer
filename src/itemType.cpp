@@ -35,3 +35,5 @@ int Item::getQuantity() const {
 int Item::getMinStockThreshold() const {
     return minStockThreshold;
 }
+
+Item::~Item() {}
