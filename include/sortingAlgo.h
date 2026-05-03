@@ -1,22 +1,20 @@
-#ifndef "SORTINGALGO_H"
-#define "SORTINGALGO_H"
-/**
- *  @brief Merges two adjacent rangs in an array (merge)
- *  @param from; the start of the first range
- *  @param mid; the end of the first range
- *  @param to; the end of the second range
- */
+#ifndef SORTING_ALGO_H
+#define SORTING_ALGO_H
 
-// IMPORTANT, this is our implemenetation code in class, we might need to convert it to accept objects of our item types. Still implemeneting 
-void merge(std::vector<int>& a, int from, int mid, int to);
+#include "linkedList.h"
 
-/**
- *  @brief sorts the elements in a range of an array
- *  @param from; start o the range to sort
- *  @param to; end of the range to sort
- */
+/*
+*   Implemented https://www.geeksforgeeks.org/dsa/cpp-program-for-merge-sort-of-linked-lists/
+*   This allowed me to learn more about mergeSort with the addition of nodes and recursion.
+*/
 
-// IMPORTANT, this is our implemenetation code in class, we might need to convert it to accept objects of our item types. Still implemeenting
-void mergeSort(std::vector<int>& a, int from, int to);
+// Finds the middle of the linked list (used for splitting)
+LinkedList::Node* getMiddle(LinkedList::Node* head);
+
+// Merges two sorted linked lists
+LinkedList::Node* merge(LinkedList::Node* left, LinkedList::Node* right);
+
+// Merge sort entry function
+LinkedList::Node* mergeSort(LinkedList::Node* head);
 
 #endif

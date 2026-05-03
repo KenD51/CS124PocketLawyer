@@ -3,7 +3,7 @@
 # Inventory + Warehouse Optimization System
   Team members: Aaron, Kenshin, Darcie
   
-Project Overview
+# Project Overview
 The Inventory + Warehouse Optimization System is a software application designed to manage products in a warehouse, track inventory levels, and improve the efficiency of item retrieval and restocking. 
 The system simulates real warehouse operations by organizing item data, prioritizing tasks, and optimizing routes for workers or automated systems.
 This project demonstrates how data structures and algorithms can be used to solve practical logistics and supply chain problems.
@@ -50,18 +50,37 @@ This project demonstrates how data structures and algorithms can be used to solv
 - Starting implemenetation of RBT (Aaron)
 - CSV Readers started (Aarom)
 
+# Updates 4/29
+- Worked on Readers (Aaron)
+- Worked on stock alert and inventory management (Kenshin)
+- ReStockManager.cpp (Kenshin)
+- manager.cpp (Kenshin)
+- GUI started (Kenshin)
+
+# 4/29 Feedback
+Good progress! There are a lot of specialized functionalities here! Are you sure you want to include all of the ones listed in your current scope. It looks like a lot of work. No need to go back to fix anything for now, but for future, adding comments at top of header file to explain the object's role in the project would be helpful for me. Like the RBT header file just says that it's RBT but I don't know its role in your project!  Let's check-in tomorrow so I can get a better understanding!
+
+- Suporn Chenhansa
+
+# 4/29 What needs to be done
+
+- SortingAlgo.cpp (Needs to be worked on)
+- StockAlertManager.cpp (Finish and Testing)
+- RestockManager.cpp (Testing)
+- RBT (Testing)
+- main.cpp (Needs to be worked on) (Presenting on Monday)
+- test.cpp (temporary test file for executables)
+- LinkedList.cpp (Needs to be worked on)
+- ItemType.cpp (Testing)
+- InventoryLinearSearch.cpp (Testing)
+- ReadCSV.cpp (Update pathing, ready for testing after)
+- BinarySearchTree (Needs to be worked on)
+
 # Algorithms Used
 - Shortest path algorithm: Dijkstra’s algorithm. Used to find the fastest or shortest path through the warehouse to collect items.
 - Greedy algorithm: Used to determine a practical picking order or restocking sequence.
 - Sorting: Used to rank items by: quantity, urgency, popularity, reorder priority
 - Search algorithms: Used to find matching products quickly by keyword or ID.
 
-# Division of Labor
-
- Darcie: Modular Testing + User Testing
-
- Aaron:  Modular Testing + User Testing
-
-Kenshin: Modular Testing + User Testing
 
 
