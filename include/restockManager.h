@@ -37,8 +37,8 @@ class RestockTask {
 class RestockManager {
 
 private:
-    // Priority queue to rank the restocking tasks by urgencyScore
-    std::priority_queue<RestockTask> restockQueue_;
+    // Priority queue to rank the restocking tasks by urgency score
+    std::priority_queue<RestockTask> restockQueue;
     
     /**
      * @brief Helper function to calculate an item's urgency score. the priority is how low the current stock is compared to the target quantiy.
