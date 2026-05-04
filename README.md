@@ -76,6 +76,24 @@ Good progress! There are a lot of specialized functionalities here! Are you sure
 - ReadCSV.cpp (Update pathing, ready for testing after)
 - BinarySearchTree (Needs to be worked on)
 
+# 5/1
+
+- RBT (WIP) (Aaron)
+- Restocking, Terminal Interface (WIP) (Kenshin)
+- Sorting Algorithm (WIP) (Darcie)'
+
+# 5/2
+- Working on executables for class (WIP) (Aaron, Kenshin, Darcie)
+- RBT (WIP) (Aaron)
+- Terminal Interface (WIP) (Kenshin)
+- Refactoring of mergeSort.cpp (Darcie)
+
+# 5/3
+- Debugging source files for compiling (Aaron, Kenshin, Darcie)
+- Final touches on RBT (Aaron)
+- General Debugging, successful test.cpp (Kenshin)
+- Getting executables for mergeSort.cpp, branching with csvFunctions.cpp & sortingAlgo.cpp (Darcie)
+
 # Algorithms Used
 - Shortest path algorithm: Dijkstra’s algorithm. Used to find the fastest or shortest path through the warehouse to collect items.
 - Greedy algorithm: Used to determine a practical picking order or restocking sequence.
