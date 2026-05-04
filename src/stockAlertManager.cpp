@@ -14,13 +14,12 @@ StockAlertManager::StockAlertManager() {}
 StockAlertManager::~StockAlertManager() {}
 
 void StockAlertManager::setMinimumThreshold(const std::string& id, int threshold) {
-    // Fix: Apparently we are using 'thresholds_' instead of threshold. Alright...
-    thresholds_[id] = threshold; 
+    minimumThresholds[id] = threshold; 
 }
 
 int StockAlertManager::getThreshold(const std::string &id) const {
-    if(thresholds_.count(id)) {
-        return thresholds_.at(id);
+    if(minimumThresholds.count(id)) {
+        return minimumThresholds.at(id);
     }
     return 0; // Fix: I added return 0 to have a default return value if there is no id.
 }
