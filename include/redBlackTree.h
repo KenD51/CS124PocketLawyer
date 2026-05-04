@@ -1,7 +1,7 @@
 #ifndef CS124INVENTORYMANAGEMENT_REDBLACKTREE_H
 #define CS124INVENTORYMANAGEMENT_REDBLACKTREE_H
 #include <iostream>
-#include <string> // Added include for std::string to fix compilation errors
+#include "itemType.h"
 const int BLACK = 1;
 const int RED = 0;
 const int NEGATIVE_RED = -1;
@@ -9,6 +9,7 @@ const int DOUBLE_BLACK = -2;
 
 /**
    This class implements a red-black tree.
+   Largely taken from Zybooks and adjusted to follow nested class format
 */
 class RedBlackTree {
 public:
@@ -25,22 +26,26 @@ public:
       Inserts a new element into the tree.
       @param element the element to insert
    */
-   void insert(std::string element);
+   void insert(const Item& item);
 
    /**
       Tries to find an element in the tree.
       @param element the element to find
       @return 1 if the element is contained in the tree, 0 otherwise
    */
-   int count(std::string element) const;
+   int count(const std::string& id) const;
 
    /**
       Tries to remove an element from the tree. Does nothing
       if the element is not contained in the tree.
       @param element the element to remove
    */
-   void erase(std::string element);
-
+   void erase(const std::string& id);
+   /**
+     Searches the rbt for the item id
+     returns item pointer
+  */
+   Item* search(const std::string& id) const;
    /**
       Prints the contents of the tree in sorted order.
    */
@@ -59,6 +64,9 @@ private:
          Constructs a red node with no data.
       */
       Node();
+
+      Node(const Item& item);
+
       ~Node();
 
       // These members are public for testing
@@ -73,19 +81,16 @@ private:
          @param child the new right child
       */
       void setRightChild(Node* child);
-
-      std::string data; // Changed from 'string' to 'std::string' to fix compilation error
-      Node* left;
-      Node* right;
-      Node* parent;
-      int color;
-
-   private:
       /**
          Adds a node as a child of this node.
          @param new_node the node to add
       */
-      void addNode(Node* newNode);
+      bool addNode(Node* newNode);
+      Item data;
+      Node* left;
+      Node* right;
+      Node* parent;
+      int color;
    };
    /**
       Prints a node and all of its descendants in sorted order.
@@ -127,7 +132,7 @@ private:
       or double-red violations
       @return true if the tree was fixed
    */
-   bool bubbleUpFix(Node* child);
+   bool fixBubbleUp(Node* child);
 
    /**
       Fixes a "double red" violation.

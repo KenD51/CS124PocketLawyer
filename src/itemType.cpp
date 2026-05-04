@@ -37,3 +37,12 @@ int Item::getMinStockThreshold() const {
 }
 
 Item::~Item() {}
+
+std::ostream& operator<<(std::ostream& out, const Item& item) {
+    out << "ID:" << item.getId()
+        << ", Name: " << item.getName()
+        << ", Quantity: " << item.getQuantity()
+        << ", MinStockThreshold: " << item.getMinStockThreshold();
+
+    return out;
+}

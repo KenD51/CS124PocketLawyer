@@ -29,4 +29,5 @@ private:
     int minStockThreshold;  // Minimum stock threshold for the item, used for restocking alerts//
 };
 
+std::ostream& operator<<(std::ostream& out, const Item& item);
 #endif // ITEM_TYPES_H

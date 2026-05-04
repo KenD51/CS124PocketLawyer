@@ -1,4 +1,5 @@
-#include "RedBlackTree.h"
+#include "redBlackTree.h"
+#include "itemType.h"
 #include <iostream>
 
 RedBlackTree::Node::Node() {
@@ -6,6 +7,14 @@ RedBlackTree::Node::Node() {
     right = nullptr;
     parent = nullptr;
     color = RED;
+}
+
+RedBlackTree::Node::Node(const Item& item) {
+        data = item;
+        left = nullptr;
+        right = nullptr;
+        parent = nullptr;
+        color = RED;
 }
 
 RedBlackTree::Node::~Node() {
@@ -19,6 +28,7 @@ void RedBlackTree::Node::setLeftChild(Node* child) {
         child->parent = this;
     }
 }
+
 void RedBlackTree::Node::setRightChild(Node* child) {
     right = child;
     if (child != nullptr) {
@@ -26,79 +36,121 @@ void RedBlackTree::Node::setRightChild(Node* child) {
     }
 }
 
-void RedBlackTree::Node::addNode(Node* newNode) {
-    if (newNode->data < data) {
+bool RedBlackTree::Node::addNode(Node* newNode) {
+
+    if (newNode->data.getId() < data.getId()) {
         if (left == nullptr) {
-            left = newNode;
-            left->parent = this;
+            setLeftChild(newNode);
+            return true;
         }
-        else { left->addNode(newNode); }
+        return left->addNode(newNode);
     }
-    else if (newNode->data > data) {
+    if (newNode->data.getId() > data.getId()) {
         if (right == nullptr) {
-            right = newNode;
-            right->parent = this;
+            setRightChild(newNode);
+            return true;
         }
-        else { right->addNode(newNode); }
+        return right->addNode(newNode);
+
     }
+    //duplicate id
+    return false;
 }
+
 RedBlackTree::RedBlackTree() {
     root = nullptr;
 }
+
 RedBlackTree::~RedBlackTree() {
     delete root;
 }
-void RedBlackTree::insert(std::string element) {
-    Node* newNode = new Node;
-    newNode->data = element;
-    newNode->left = nullptr;
-    newNode->right = nullptr;
-    if (root == nullptr) { root = newNode; }
-    else { root->addNode(newNode); }
+
+void RedBlackTree::insert(const Item& item) {
+    Node* newNode = new Node(item);
+    if (root == nullptr) {
+        root = newNode;
+        root->color = BLACK;
+        return;
+    }
+    bool inserted = root->addNode(newNode);
+    if (!inserted) {
+        delete newNode;
+        return;
+    }
     fixAfterAdd(newNode);
 }
-int RedBlackTree::count(std::string element) const {
+
+int RedBlackTree::count(const std::string& id) const {
     Node* current = root;
     while (current != nullptr) {
-        if (element < current->data) {
+        if (id < current->data.getId()) {
             current = current->left;
         }
-        else if (element > current->data) {
+        else if (id > current->data.getId()) {
             current = current->right;
         }
         else return 1;
     }
     return 0;
 }
-void RedBlackTree::erase(std::string element) {
-    //find node to remove
+
+Item* RedBlackTree::search(const std::string& id) const {
+    Node* current = root;
+    while (current != nullptr) {
+        if (id < current->data.getId()) {
+            current = current->left;
+        }
+        else if (id > current->data.getId()) {
+            current = current->right;
+        }
+        else {
+            return &(current->data);
+        }
+    }
+    return nullptr;
+}
+
+void RedBlackTree::erase(const std::string& id) {
+    //find node with matching id
     Node* toBeRemoved = root;
     bool found = false;
     while (!found && toBeRemoved != nullptr) {
-        if (element == toBeRemoved->data) {
+        if (id == toBeRemoved->data.getId()) {
             found = true;
         }
-        else if (element < toBeRemoved->data) {
+        else if (id < toBeRemoved->data.getId()) {
             toBeRemoved = toBeRemoved->left;
         }
-        else { toBeRemoved = toBeRemoved->right; }
+        else {
+            toBeRemoved = toBeRemoved->right;
+        }
     }
-    if (!found){ return; }
+    if (!found) {
+        return;
+    }
     // toBeRemoved contains element
     // if one of the children is empty, use the other
-    if (toBeRemoved->left != nullptr || toBeRemoved->right != nullptr) {
+    if (toBeRemoved->left == nullptr || toBeRemoved->right == nullptr) {
         Node* newChild;
         if (toBeRemoved->left != nullptr) {
+            newChild = toBeRemoved->left;
+        }
+        else {
             newChild = toBeRemoved->right;
         }
-        else { newChild = toBeRemoved->left; }
+
         fixBeforeRemove(toBeRemoved);
         replaceWith(toBeRemoved, newChild);
+
+        toBeRemoved->left = nullptr;
+        toBeRemoved->right = nullptr;
+        delete toBeRemoved;
         return;
     }
     //neither subtree is empty
     //find smallest element of the right subtree
     Node* smallest = toBeRemoved->right;
+
     while (smallest->left != nullptr) {
         smallest = smallest->left;
     }
@@ -106,26 +158,46 @@ void RedBlackTree::erase(std::string element) {
 
     //move contents, unlink child
     toBeRemoved->data = smallest->data;
+
+    Node* newChild = smallest->right;
+
     fixBeforeRemove(smallest);
-    replaceWith(smallest, smallest->right);
+    replaceWith(smallest, newChild);
+
+    smallest->left = nullptr;
+    smallest->right = nullptr;
+    delete smallest;
 }
+
 void RedBlackTree::print() const {
     print(root);
     std::cout << std::endl;
 }
+
 //inorder traversal to print
 void RedBlackTree::print(Node* parent) const {
     if (parent == nullptr) { return; }
     print(parent->left);
-    cout << parent->data << " ";
+    std::cout << parent->data.getName();
+    /*
+    if (parent->color == RED) {
+        std::cout << " [red in memory]";
+    }
+    else {
+        std::cout << " [black in memory]";
+    }
+    */
+    std::cout << std::endl;
     print(parent->right);
 }
 
 void RedBlackTree::replaceWith(Node* toBeReplaced, Node* replacement) {
     if (toBeReplaced->parent == nullptr)
     {
-        replacement->parent = nullptr;
         root = replacement;
+        if (replacement != nullptr) {
+            replacement->parent = nullptr;
+        }
     }
     else if (toBeReplaced == toBeReplaced->parent->left)
     {
@@ -135,19 +207,21 @@ void RedBlackTree::replaceWith(Node* toBeReplaced, Node* replacement) {
     {
         toBeReplaced->parent->setRightChild(replacement);
     }
-
 }
 
 void RedBlackTree::fixAfterAdd(Node* newNode) {
-    if (newNode->parent == nullptr) {
+    if (newNode == root) {
         newNode->color = BLACK;
+        return;
     }
-    else {
-        newNode->color = RED;
-        if (newNode->parent->color == RED) {
-            fixDoubleRed(newNode);
-        }
+
+    newNode->color = RED;
+
+    if (newNode->parent != nullptr && newNode->parent->color == RED) {
+        fixDoubleRed(newNode);
     }
+
+    root->color = BLACK;
 }
 
 void RedBlackTree::fixBeforeRemove(Node* toBeRemoved) {
@@ -162,17 +236,31 @@ void RedBlackTree::fixBeforeRemove(Node* toBeRemoved) {
 }
 
 void RedBlackTree::bubbleUp(Node* parent) {
-    if (parent == nullptr) {return;}
+    if (parent == nullptr) {
+        return;
+    }
     parent->color++;
-    parent->left->color--;
-    parent->right->color--;
+    if (parent->left != nullptr) {
+        parent->left->color--;
+    }
+    if (parent->right != nullptr) {
+        parent->right->color--;
+    }
 
-    if (bubbleUp(parent->left)) {return;}
-    if (bubbleUp(parent->right)) {return;}
+    if (parent->left != nullptr && fixBubbleUp(parent->left)) {
+        return;
+    }
+    if (parent->right != nullptr &&fixBubbleUp(parent->right)) {
+        return;
+    }
 
     if (parent->color == DOUBLE_BLACK) {
-        if (parent->parent == nullptr){ parent->color = BLACK; }
-        else { bubbleUp(parent->parent); }
+        if (parent->parent == nullptr) {
+            parent->color = BLACK;
+        }
+        else {
+            bubbleUp(parent->parent);
+        }
     }
 }
 
@@ -255,12 +343,13 @@ void RedBlackTree::fixDoubleRed(Node* child) {
     n1->color = BLACK;
     n3->color = BLACK;
 
-    if (n2 == BLACK){
+    if (n2->color == BLACK){
     root->color = BLACK;
     }
-    else if (n2->color == RED && n2->parent->color == RED) {
+    if (n2->parent != nullptr && n2->color == RED && n2->parent->color == RED) {
         fixDoubleRed(n2);
-    }}
+    }
+}
 
 void RedBlackTree::fixNegativeRed(Node* negRed) {
     Node* parent = negRed->left;
