@@ -7,7 +7,7 @@
  * @brief A simple singly linked list to store inventory items.
  */
 class LinkedList {
-
+public:  // Changed from private to public to allow sortingAlgo.h to access LinkedList::Node for merge sort operations
     struct Node {
         Item data;
         Node* next;
@@ -16,6 +16,7 @@ class LinkedList {
         Node(const Item& item) : data(item), next(nullptr) {}
     };
 
+private:
     Node* head;
     Node* tail;
     int count;
