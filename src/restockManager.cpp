@@ -23,7 +23,7 @@ RestockManager::~RestockManager() {}
 
 // --- Restock Manager --- //
 bool RestockManager::isEmpty() const {
-  return restockQueue_.empty();  // Changed from 'restockQueue' to 'restockQueue_' to match member variable name, Idk why we are using this naming convention.
+  return restockQueue.empty();
 }
 
 //Urgency is how many items are missing from the target quantity.
@@ -36,25 +36,25 @@ void RestockManager::addRestockTask(const Item &item, int targetQuantity) {
     int needed = targetQuantity - item.getQuantity();
     if (needed > 0) {
         int score = calculateUrgency(item, targetQuantity);
-        restockQueue_.push(RestockTask(item.getId(), item.getName(), needed, score));  // Changed from 'restockQueue' to 'restockQueue_'
+        restockQueue.push(RestockTask(item.getId(), item.getName(), needed, score));
     }
 }
 
 //We "process" an object in the queue by peeking at it, then we can pop it.
 RestockTask RestockManager::popNextRestockTask() {
-    RestockTask topTask = restockQueue_.top();  // Changed from 'restockQueue' to 'restockQueue_'
-    restockQueue_.pop();
+    RestockTask topTask = restockQueue.top();
+    restockQueue.pop();
     return topTask;
 }
 
 RestockTask RestockManager::peekNextRestockTask() const{
-    return restockQueue_.top();  // Changed from 'restockQueue' to 'restockQueue_'
+    return restockQueue.top();
 }
 
 //Traversal will return the current list as a vector.
 std::vector<RestockTask> RestockManager::generatePriorityList() const {
     std::vector<RestockTask> list;
-    std::priority_queue<RestockTask> temp = restockQueue_;  // Changed from 'std::priorityQueue' to 'std::priority_queue' and 'restockQueue' to 'restockQueue_'
+    std::priority_queue<RestockTask> temp = restockQueue;
 
     while(!temp.empty()){
         list.push_back(temp.top());
