@@ -2,6 +2,7 @@
 #define ITEM_TYPES_H
 
 #include <string>
+#include <iostream>
 
 
 class Item {

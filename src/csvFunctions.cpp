@@ -62,7 +62,8 @@ bool loadFromFile(const std::string& filename, LinkedList& inventoryList, RedBla
 
         Item item(id, name, category, quantity, minStockThreshold);
         inventoryList.insertAtEnd(item);
-        inventoryTree.insert(id);
+        // Changed to insert Item instead of string to match RedBlackTree::insert signature
+        inventoryTree.insert(item);
 
     }
 
