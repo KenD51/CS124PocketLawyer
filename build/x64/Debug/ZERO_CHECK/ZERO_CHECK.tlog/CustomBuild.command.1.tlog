@@ -1,0 +1,10 @@
+^C:\USERS\KENSH\ONEDRIVE\DESKTOP\CS124INVENTORYMANAGEMENT-MAIN\BUILD\CMAKEFILES\DB69696D429FAC2E97F1AC17C938AC0E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main -BC:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main/build/CS124InventoryManagement.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
