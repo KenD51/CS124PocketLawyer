@@ -1,4 +1,0 @@
-C:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main/build/CMakeFiles/CS124InventoryManagement.dir
-C:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main/build/CMakeFiles/tests.dir
-C:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/kensh/OneDrive/Desktop/CS124InventoryManagement-main/build/CMakeFiles/ZERO_CHECK.dir
